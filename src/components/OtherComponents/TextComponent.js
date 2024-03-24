@@ -22,6 +22,13 @@ export default function TextComponent(props) {
         setText(event.target.value);
     };
 
+    const handleCapitalize = () => {
+        let newText = text.split(" ").map(el => el.charAt(0).toUpperCase() + el.slice(1)).join(" ");
+        setText(newText);
+   }
+
+   
+
     return (
         <>
             <h1>{props.heading}</h1>
@@ -33,6 +40,7 @@ export default function TextComponent(props) {
     <button className="btn btn-primary" style={{ marginRight: '20px' }} onClick={handleUpClick}>Convert to UpperCase</button>
     <button className="btn btn-primary" style={{ marginRight: '20px' }} onClick={handlelowerClick}>Convert to LowerCase</button>
     <button className="btn btn-primary" style={{ marginRight: '20px' }} onClick={handleClearClick}>Clear text</button>
+    <button className="btn btn-primary" style={{ marginRight: '20px' }} onClick={handleCapitalize}>Capitalize text</button>
     <button type="submit" onClick={speak} className="btn btn-warning mx-2 my-2">Speak</button>
 </div>
 <div className="container my-2"> {/* my-2 spacing between text */}

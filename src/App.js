@@ -11,12 +11,12 @@ function App() {
     <Router>
       <div style={{ backgroundColor: 'dark', /*minHeight: '100vh', color: 'white'*/ }}>
         <HomeNavbar title="TextEditor" aboutus="About TextEditor"/>
-        {/* <div className="container">
+        <div className="container">
           <TextComponent heading="Enter the text : "/>
-        </div> */}
+        </div>
         
         <Routes> 
-          <Route path='/aboutus' element={<AboutUs/>} />
+          {/* <Route path='/aboutus' element={<AboutUs/>} /> */}
         </Routes>
       </div>
     </Router>
