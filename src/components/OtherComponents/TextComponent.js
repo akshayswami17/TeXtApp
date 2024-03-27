@@ -32,9 +32,9 @@ export default function TextComponent(props) {
     return (
         <>
             <h1>{props.heading}</h1>
-            <div className="mb-3">
+            <div className="mb-3" >
                 <label htmlFor="mybox" className="form-label"></label>
-                <textarea className="form-control" onChange={handleOnChange} value={text} id="mybox" rows="8"></textarea>
+                <textarea className="form-control" onChange={handleOnChange} value={text} style={{backgroundColor :props.mode==='dark'?'black':'white'  , color: props.mode==='dark'?'white':'black' } } id="mybox" rows="8"></textarea>
             </div>
             <div>
     <button className="btn btn-primary" style={{ marginRight: '20px' }} onClick={handleUpClick}>Convert to UpperCase</button>
@@ -43,7 +43,7 @@ export default function TextComponent(props) {
     <button className="btn btn-primary" style={{ marginRight: '20px' }} onClick={handleCapitalize}>Capitalize text</button>
     <button type="submit" onClick={speak} className="btn btn-warning mx-2 my-2">Speak</button>
 </div>
-<div className="container my-2"> {/* my-2 spacing between text */}
+<div className="container my-2" > {/* my-2 spacing between text */}
 
     <h3>Your text summary</h3>
     <p>Words : {text.split(" ").length}  and Characters : {text.length} </p>
