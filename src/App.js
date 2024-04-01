@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import HomeNavbar from "./components/Navbars/HomeNavBar";
 import TextComponent from "./components/OtherComponents/TextComponent";
 import AboutUs from "./components/OtherComponents/AboutUs";
 import Alert from "./components/OtherComponents/Alert";
+
 
 function App() {
   const [mode, setMode] = useState('dark');
@@ -36,21 +37,18 @@ function App() {
   };
 
   return (
-    <Router>
-      <div
-        style={{
-          backgroundColor: "dark" /*minHeight: '100vh', color: 'white'*/,
-        }}
-      >
-        <HomeNavbar title="TextEditor" aboutus="About TextEditor" mode={mode} toggleMode={toggleMode}/>
-        <Alert alert={alert}/>
+    <div>
+      <Router>
+        <HomeNavbar title="TextEditor" aboutus="About TextEditor" mode={mode} toggleMode={toggleMode} />
+        <Alert alert={alert} />
         <div className="container">
-          <TextComponent  showAlert={showAlert} heading="Enter the text : " />
+          <Routes>
+            <Route path="/" element={<TextComponent showAlert={showAlert} heading="Enter the text : " />} />
+            <Route path="/aboutus" element={<AboutUs />} />
+          </Routes>
         </div>
-
-        <Routes>{/* <Route path='/aboutus' element={<AboutUs/>} /> */}</Routes>
-      </div>
-    </Router>
+      </Router>
+    </div>
   );
 }
 
